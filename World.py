@@ -1,9 +1,6 @@
 #myWorld=[['A','B','C'],['D','E','F'],['H','I','J']]
 
-n=5
-myWorld=[]
-myWorld=[[0 for j in range(n)] for i in range(n)]
-print myWorld
+
 
 def neighborhood(myWorld,i,j):
     n=len(myWorld)
