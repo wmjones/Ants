@@ -10,25 +10,31 @@ class HexagonGenerator(object):
     center_x = math.sqrt(3) * self.edge_length * (col + row * .5)
     center_y = 3 * self.edge_length * row * .5
     
-    #offset so that it isnt cut off
+    #i should offset so that it isnt cut off
     for angle in [30, 90, 150, 210, 270, 330]:
       x = center_x + math.cos(math.radians(angle)) * self.edge_length
       y = center_y + math.sin(math.radians(angle)) * self.edge_length
       yield x
       yield y
 
-def main():
+def graphHexGrid(x_length, y_length, edge_length, matrix):
     #format image size based on hex size and number
-  image = Image.new('RGB', (800, 800), 'white')
+  image = Image.new('RGB', (x_length, y_length), 'white')
   draw = ImageDraw.Draw(image)
-  hexagon_generator = HexagonGenerator(20)
-  for row in range(20):
-      for col in range(20):
+  hexagon_generator = HexagonGenerator(edge_length)
+  for row in [4]:#range(len(matrix)):
+      for col in [6]:#range(len(matrix)):
           hexagon = hexagon_generator(row, col)
-          draw.polygon(list(hexagon), outline='black', fill='red')
-  
+          if matrix[row][col]==1:
+              draw.polygon(list(hexagon), fill='black')
+          else:
+              draw.polygon(list(hexagon), outline='black', fill='white')
   image.show()
 
-main()
+n=2*4
+myWorld=[]
+myWorld=[[0 for j in range(n)] for i in range(n)]
 
+graphHexGrid(500,500,10,myWorld)
 #perhaps set up so that I call it from main.py
+#[i-1,j],[i-1,j+1],[i,j+1],[i+1,j],[i+1,j-1],[i,j-1]

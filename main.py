@@ -1,8 +1,7 @@
 from World import neighborhood
+from display import graphHexGrid
 
-
-n=2*5
-nest=[n/2,n/2]
+n=2*4
 myWorld=[]
 myWorld=[[0 for j in range(n)] for i in range(n)]
 
@@ -12,12 +11,30 @@ from ants import Ant
 #print myWorld
 #print neighborhood(myWorld,*v)
 
-numOfAnts=10
+numOfAnts=3
 population=[]
 for i in range(numOfAnts):
     population.append(Ant(i))
-print population
 
-print population[0].p
-Ant.look(population[0],*neighborhood(myWorld,*(population[0].p)))
-print population[0].p
+#for t in range(5):
+#    graphHexGrid(500,500,10,myWorld)
+#    for i in range(len(population)):
+#        a, b = (population[i].p)[0], (population[i].p)[1]
+#        myWorld[a][b]=1
+#        Ant.look(population[i],*neighborhood(myWorld,*(population[i].p)))
+myWorld[5][5]=1
+graphHexGrid(500,500,10,myWorld)
+myWorld[4][5]=1
+graphHexGrid(500,500,10,myWorld)
+myWorld[5][6]=1
+graphHexGrid(500,500,10,myWorld)
+myWorld[6][6]=1
+graphHexGrid(500,500,10,myWorld)
+myWorld[6][5]=1
+graphHexGrid(500,500,10,myWorld)
+myWorld[5][4]=1
+graphHexGrid(500,500,10,myWorld)
+myWorld[4][4]=1
+graphHexGrid(500,500,10,myWorld)
+
+print myWorld

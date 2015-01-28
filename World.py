@@ -59,6 +59,8 @@ def neighborhood(matrix,*p):
         cells.append(matrix[i+1][j])
         cells.append(matrix[i][j-1])
     return cells
+#[i-1,j],[i-1,j+1],[i,j+1],[i+1,j],[i+1,j-1],[i,j-1]
+
 
 #for i in range(n):
 #    for j in range(n):
