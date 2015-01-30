@@ -1,0 +1,14 @@
+from ants import Ant
+
+n = 10
+myWorld = []
+myWorld = [[0 for j in range(n)] for i in range(n)]
+
+population = []
+for i in range(3):
+    population.append(Ant(i))
+
+myWorld[5][5] = population
+myWorld[5][4].append(myWorld[5][5][1])
+del myWorld[5][5][0]
+print myWorld[5][5][0].name

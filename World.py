@@ -1,51 +1,50 @@
-def neighborhood(matrix,*p):
+def neighborhood(matrix, *p):
     n = (len(matrix)-1)
-    i,j = p[0],p[1]
-
-    cells=[]
-    if (i==0 and j==n-1) or (i==(n-1) and j==0):
+    i, j = p[0], p[1]
+    cells = []
+    if (i == 0 and j == n-1) or (i == (n-1) and j == 0):
         cells.append(matrix[n-2][0])
         cells.append(matrix[n-2][1])
         cells.append(matrix[n-1][1])
         cells.append(matrix[1][n-1])
         cells.append(matrix[1][n-2])
         cells.append(matrix[0][n-2])
-    elif i==0 and j==0:
+    elif i == 0 and j == 0:
         cells.append(matrix[n-1][0])
         cells.append(matrix[n-1][1])
         cells.append(matrix[0][1])
         cells.append(matrix[1][0])
         cells.append(matrix[1][n-1])
         cells.append(matrix[0][n-1])
-    elif j==(n-1) and i==(n-1):
+    elif j == (n-1) and i == (n-1):
         cells.append(matrix[n-2][n-1])
         cells.append(matrix[n-2][0])
         cells.append(matrix[n-1][0])
         cells.append(matrix[0][n-1])
         cells.append(matrix[0][n-2])
         cells.append(matrix[n-1][n-2])
-    elif i==0:
+    elif i == 0:
         cells.append(matrix[n-1][j])
         cells.append(matrix[n-1][j+1])
         cells.append(matrix[0][j+1])
         cells.append(matrix[1][j+1])
         cells.append(matrix[1][j])
         cells.append(matrix[0][j-1])
-    elif i==(n-1):
+    elif i == (n-1):
         cells.append(matrix[i-1][j])
         cells.append(matrix[i-1][j+1])
         cells.append(matrix[i][j+1])
         cells.append(matrix[0][j])
         cells.append(matrix[0][j-1])
         cells.append(matrix[i][j-1])
-    elif j==0:
+    elif j == 0:
         cells.append(matrix[i-1][j])
         cells.append(matrix[i-1][j+1])
         cells.append(matrix[i][j+1])
         cells.append(matrix[i+1][j])
         cells.append(matrix[i+1][n-1])
         cells.append(matrix[i][n-1])
-    elif j==(n-1):
+    elif j == (n-1):
         cells.append(matrix[i-1][j])
         cells.append(matrix[i-1][0])
         cells.append(matrix[i][0])
@@ -90,10 +89,10 @@ def neighborhood(matrix,*p):
 #    if i>=n-1 and j!=0 and j!=n-1:
 #        cells.append(matrix[0][j-1])
 #        cells.append(matrix[0][j-1])
-#    elif i==0 and j!=0 and j!=n-1:
+#    elif i == 0 and j!=0 and j!=n-1:
 #        cells.append(matrix[n-1][j-1])
 #        cells.append(matrix[n-1][j])
-#    elif j==0:
+#    elif j == 0:
 #        cells.append(matrix[i+1][n-1])
 #        cells.append(matrix[i-1][n-1])
 #    elif j==n-1:
