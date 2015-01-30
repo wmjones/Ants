@@ -17,9 +17,9 @@ class HexagonGenerator(object):
       yield x
       yield y
 
-def graphHexGrid(x_length, y_length, edge_length, matrix):
+def graphHexGrid(x_length, y_length, edge_length, matrix,t):
     #format image size based on hex size and number
-  image = Image.new('RGB', (x_length, y_length), 'white')
+  image = Image.new('RGBA', (x_length, y_length), 'white')
   draw = ImageDraw.Draw(image)
   hexagon_generator = HexagonGenerator(edge_length)
   for row in range(len(matrix)):
@@ -29,7 +29,7 @@ def graphHexGrid(x_length, y_length, edge_length, matrix):
               draw.polygon(list(hexagon), fill='black')
           else:
               draw.polygon(list(hexagon), outline='black', fill='white')
-  image.show()
+  image.save('Frame' + str(t) + '.GIF', 'GIF',transparency=0)
 
 n=2*4
 myWorld=[]

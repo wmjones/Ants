@@ -1,8 +1,9 @@
 def neighborhood(matrix,*p):
-    n = len(matrix)
+    n = (len(matrix)-1)
     i,j = p[0],p[1]
+
     cells=[]
-    if i==0 and j==n-1 or i==(n-1) and j==0:
+    if (i==0 and j==n-1) or (i==(n-1) and j==0):
         cells.append(matrix[n-2][0])
         cells.append(matrix[n-2][1])
         cells.append(matrix[n-1][1])
