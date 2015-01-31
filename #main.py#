@@ -15,11 +15,6 @@ for t in range(1):
     for col in range(n):
         for row in range(n):
             for ant in range(len(myWorld[col][row])):
-                print neighborhood(myWorld, 0, 0)
-                x = neighborhood(myWorld, 0, 0)[0]
-                x = 2
-                print neighborhood(myWorld, 0, 0)[0]
-                print myWorld
                 # N_ant = neighborhood(myWorld, col, row)
                 # y, x = Ant.look(myWorld[col][row][ant], col, row, *N_ant)
                 # print col, row, ant, x, y

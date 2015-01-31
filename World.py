@@ -1,7 +1,68 @@
 # figure out how to pull in the actual myWorld[j][i] element not just a copy of it
-def neighborhood(matrix, *arg):
+
+
+def setNeighborhood(myWorld, j, i, *args):
+    n = len(myWorld)
+    if (i == 0 and j == n-1) or (i == (n-1) and j == 0):
+        myWorld[0][n-2] = args[0]
+        myWorld[1][n-2] = args[1]
+        myWorld[1][n-1] = args[2]
+        myWorld[n-1][1] = args[3]
+        myWorld[n-2][1] = args[4]
+        myWorld[n-2][0] = args[5]
+    elif i == 0 and j == 0:
+        myWorld[0][n-1] = args[0]
+        myWorld[1][n-1] = args[1]
+        myWorld[1][0] = args[2]
+        myWorld[0][1] = args[3]
+        myWorld[n-1][1] = args[4]
+        myWorld[n-1][0] = args[5]
+    elif j == (n-1) and i == (n-1):
+        myWorld[n-1][n-2] = args[0]
+        myWorld[0][n-2] = args[1]
+        myWorld[0][n-1] = args[2]
+        myWorld[n-1][0] = args[3]
+        myWorld[n-2][0] = args[4]
+        myWorld[n-2][n-1] = args[5]
+    elif i == 0:
+        myWorld[j][n-1] = args[0]
+        myWorld[j+1][n-1] = args[1]
+        myWorld[j+1][0] = args[2]
+        myWorld[j+1][1] = args[3]
+        myWorld[j][1] = args[4]
+        myWorld[j-1][0] = args[5]
+    elif i == (n-1):
+        myWorld[j][i-1] = args[0]
+        myWorld[j+1][i-1] = args[1]
+        myWorld[j+1][i] = args[2]
+        myWorld[j][0] = args[3]
+        myWorld[j-1][0] = args[4]
+        myWorld[j-1][i] = args[5]
+    elif j == 0:
+        myWorld[j][i-1] = args[0]
+        myWorld[j+1][i-1] = args[1]
+        myWorld[j+1][i] = args[2]
+        myWorld[j][i+1] = args[3]
+        myWorld[n-1][i+1] = args[4]
+        myWorld[n-1][i] = args[5]
+    elif j == (n-1):
+        myWorld[j][i-1] = args[0]
+        myWorld[0][i-1] = args[1]
+        myWorld[0][i] = args[2]
+        myWorld[j][i+1] = args[3]
+        myWorld[j-1][i+1] = args[4]
+        myWorld[j-1][i] = args[5]
+    else:
+        myWorld[j][i-1] = args[0]
+        myWorld[j+1][i-1] = args[1]
+        myWorld[j+1][i] = args[2]
+        myWorld[j][i+1] = args[3]
+        myWorld[j-1][i+1] = args[4]
+        myWorld[j-1][i] = args[5]
+
+
+def getNeighborhood(matrix, j, i, *args):
     n = len(matrix)
-    i, j = arg[1], arg[0]
     cells = []
     if (i == 0 and j == n-1) or (i == (n-1) and j == 0):
         cells.append(matrix[0][n-2])

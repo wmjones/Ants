@@ -1,10 +1,11 @@
-from ants import Ant
+class test:
+    list = range(3)
 
-n = 10
-myWorld = []
-myWorld = [[0 for j in range(n)] for i in range(n)]
+    def n(i):
+        return list[i]
 
-
-
-numOfAnts = [0,1]
-a = [Ant(i) for i in numOfAnts]
+x = test
+print x.list
+print x.n(1)
+#print test.list
+#print x.n
