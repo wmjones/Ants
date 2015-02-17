@@ -1,33 +1,49 @@
-from World import neighborhood
-#import __builtin__
+import numpy as np
+# from World import neighborhood
+# import __builtin__
 # from display import graphHexGrid
-from ants import Ant
+# from ants import Ant
 
 
+def main(size_, t_, nAnt_):
+    myWorld = np.zeros((size_, size_, 1))
+    myWorld[1][1][0] = 1
 
-n = 4
-# __builtins__.myWorld = [[[] for j in range(n)] for i in range(n)]
-myWorld = [[[] for j in range(n)] for i in range(n)]
-numOfAnts = 1
-myWorld[0][0] = [Ant(i) for i in range(numOfAnts)]
-for t in range(1):
-    #  graphHexGrid(500, 500, 10, myWorld[:, :], t)
-    for col in range(n):
-        for row in range(n):
-            for ant in range(len(myWorld[col][row])):
-                print neighborhood(myWorld, 0, 0)
-                x = neighborhood(myWorld, 0, 0)[0]
-                x = 2
-                print neighborhood(myWorld, 0, 0)[0]
-                print myWorld
-                # N_ant = neighborhood(myWorld, col, row)
-                # y, x = Ant.look(myWorld[col][row][ant], col, row, *N_ant)
-                # print col, row, ant, x, y
-                # print myWorld
-                # myWorld[y][x].append(myWorld[col][row].pop(ant))
-                # print myWorld[y][x][0]
-                # print myWorld
-print myWorld
+    def pipeline(data, fns):
+        # (myWorld, fns)
+        return reduce(lambda a, x: x(a),
+                      fns,
+                      data)
+
+    def move(x):
+        return x + 1
+
+    def move2(x):
+        return x+2
+
+    npmove = np.frompyfunc(lambda x: x+1, 1, 1)
+    npmove2 = np.frompyfunc(move2, 1, 1)
+
+    myWorld = pipeline(myWorld, [npmove, npmove2])
+    print myWorld[1][1][0]
+
+    # pipeline(myWorld, [move(myWorld)])
+    # print myWorld
+
+main(3, 1, 1)
+
+# for t in range(1):
+#     #  graphHexGrid(500, 500, 10, myWorld[:, :], t)
+#     for col in range(n):
+#         for row in range(n):
+#             for ant in range(len(myWorld[col][row])):
+#                 # N_ant = neighborhood(myWorld, col, row)
+#                 # y, x = Ant.look(myWorld[col][row][ant], col, row, *N_ant)
+#                 # print col, row, ant, x, y
+#                 # print myWorld
+#                 # myWorld[y][x].append(myWorld[col][row].pop(ant))
+#                 # print myWorld[y][x][0]
+#                 # print myWorld
 
 # myWorld
 #     neighborhood(myWorld)
